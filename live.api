@@ -1,0 +1,14 @@
+type Request {
+	RoomId string `path:"roomId"`
+}
+
+type Response {
+	Urls    []string `json:"urls"`
+	Name    string   `json:"name"`
+	LiveUrl string   `json:"liveUrl"`
+}
+
+service live-api {
+	@handler LiveHandler
+	get /huya/:roomId(Request) returns (Response)
+}
